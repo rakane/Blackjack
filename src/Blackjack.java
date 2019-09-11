@@ -32,6 +32,7 @@ public class Blackjack {
 			
 			System.out.println("Welcome to blackjack! Press any key and enter to continue: ");
 			sc.hasNext();
+			System.out.println();
 		
 			
 			
@@ -69,8 +70,8 @@ public class Blackjack {
 			String answer = "";
 			
 			while(hit) {
-				System.out.print("Do you want to hit or fold?(type it): ");
 				try {
+					System.out.print("Do you want to hit or fold?(type it): ");
 					answer = sc.nextLine();
 					while(answer.compareToIgnoreCase("hit") != 0 && answer.compareToIgnoreCase("fold") != 0) {
 						System.out.print("Do you want to hit or fold?(type it): ");
@@ -99,8 +100,6 @@ public class Blackjack {
 				}
 			}
 			
-			//Implement Dealer Here!!!
-			
 			int dealerTotal = cpu.getTotal();
 			
 			while(dealerTotal <= 16) {
@@ -118,6 +117,7 @@ public class Blackjack {
 			cpu.print();
 			System.out.println("Dealer total is: " + cpu.getTotal());
 			
+			System.out.println();
 			
 			if(player.getTotal() > cpu.getTotal() && player.getTotal() <= 21) {
 				System.out.println("YOU WIN!!!!");
@@ -127,7 +127,7 @@ public class Blackjack {
 				System.out.println("Push, hand over");
 			}
 			
-			System.out.print("Play Again? (yes or no): ");
+			System.out.print("\nPlay Again? (yes or no): ");
 			try {
 				answer = sc.nextLine();
 				while(answer.compareToIgnoreCase("yes") != 0 && answer.compareToIgnoreCase("no") != 0) {
@@ -148,6 +148,5 @@ public class Blackjack {
 		}
 		
 		sc.close();
-		
 	}
 }
