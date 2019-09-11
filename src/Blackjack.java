@@ -12,6 +12,7 @@ public class Blackjack {
 		Hand player, cpu;
 		Random randomGenerator;
 		int deckSize;
+		Scanner sc = new Scanner(System.in);
 		
 		// Loop so user can restart if needed
 		while(play) {
@@ -21,7 +22,6 @@ public class Blackjack {
 			randomGenerator = new Random();
 			player = new Hand();
 			cpu = new Hand();
-			Scanner sc = new Scanner(System.in);
 			
 			for(int i = 1; i < 14; i++) {
 				deck.add(new Card(i, "Hearts"));
@@ -119,9 +119,9 @@ public class Blackjack {
 			System.out.println("Dealer total is: " + cpu.getTotal());
 			
 			
-			if(player.getTotal() > cpu.getTotal()) {
+			if(player.getTotal() > cpu.getTotal() && player.getTotal() <= 21) {
 				System.out.println("YOU WIN!!!!");
-			} else if(player.getTotal() < cpu.getTotal()) {
+			} else if(player.getTotal() < cpu.getTotal() || player.getTotal() > 21) {
 				System.out.println("DEALER WINS!!");
 			} else {
 				System.out.println("Push, hand over");
@@ -142,10 +142,12 @@ public class Blackjack {
 				play = true;
 			} else {
 				play = false;
+				System.exit(0);
 			}
 			
-			sc.close();
 		}
+		
+		sc.close();
 		
 	}
 }
